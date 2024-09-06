@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById('graficoDesigualdade').getContext('2d');
-    var chart = new Chart(ctx, {
+    // Gráfico de Desigualdade de Renda
+    var ctxDesigualdade = document.getElementById('graficoDesigualdade').getContext('2d');
+    var chartDesigualdade = new Chart(ctxDesigualdade, {
         type: 'bar', // Tipo de gráfico: barra
         data: {
             labels: ['1% mais rico', 'Resto da População'], // Rótulos dos dados
@@ -18,55 +19,75 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-});
-document.addEventListener("DOMContentLoaded", function() {
+
+    // Gráfico de Distribuição de Níveis de Escolaridade
     var ctxEscolaridade = document.getElementById('graficoEscolaridade').getContext('2d');
     var chartEscolaridade = new Chart(ctxEscolaridade, {
-        type: 'pie',
+        type: 'pie', // Tipo de gráfico: pizza
         data: {
-            labels: ['Analfabetos', 'Ensino Fundamental Incompleto', 'Ensino Médio Completo', 'Ensino Superior Completo'],
+            labels: ['Analfabetos', 'Ensino Fundamental Incompleto', 'Ensino Médio Completo', 'Ensino Superior Completo'], // Rótulos dos dados
             datasets: [{
-                data: [6.6, 34, 26, 18],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                label: 'Distribuição de Níveis de Escolaridade', // Título do gráfico
+                data: [6.6, 34, 26, 18], // Dados em porcentagem
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99'], // Cores das fatias
             }]
         },
         options: {
-            responsive: true
-        }
-    });
-
-    var ctxSaude = document.getElementById('graficoSaude').getContext('2d');
-    var chartSaude = new Chart(ctxSaude, {
-        type: 'bar',
-        data: {
-            labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
-            datasets: [{
-                label: 'Acesso à Saúde (%)',
-                data: [60, 65, 70, 80, 85],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#FF9F40'],
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+            responsive: true, // Gráfico é responsivo
+            plugins: {
+                legend: {
+                    position: 'top' // Posição da legenda
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2) + '%';
+                        }
+                    }
                 }
             }
         }
     });
 
-    var ctxHabitacao = document.getElementById('graficoHabitacao').getContext('2d');
-    var chartHabitacao = new Chart(ctxHabitacao, {
-        type: 'doughnut',
+    // Gráfico de Acesso à Saúde por Região
+    var ctxSaude = document.getElementById('graficoSaude').getContext('2d');
+    var chartSaude = new Chart(ctxSaude, {
+        type: 'bar', // Tipo de gráfico: barra
         data: {
-            labels: ['Déficit Habitacional', 'Sem Déficit Habitacional'],
+            labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'], // Rótulos dos dados
             datasets: [{
-                data: [6, 94], // Simulação para representar o déficit habitacional
-                backgroundColor: ['#FF6384', '#36A2EB'],
+                label: 'Acesso à Saúde (%)', // Título do gráfico
+                data: [40, 35, 50, 70, 80], // Dados de acesso à saúde por região
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0'], // Cores das barras
             }]
         },
         options: {
-            responsive: true
+            scales: {
+                y: {
+                    beginAtZero: true // O eixo Y começa no zero
+                }
+            }
+        }
+    });
+
+    // Gráfico de Déficit Habitacional por Região
+    var ctxHabitacao = document.getElementById('graficoHabitacao').getContext('2d');
+    var chartHabitacao = new Chart(ctxHabitacao, {
+        type: 'bar', // Tipo de gráfico: barra
+        data: {
+            labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'], // Rótulos dos dados
+            datasets: [{
+                label: 'Déficit Habitacional (milhões)', // Título do gráfico
+                data: [1.5, 3.0, 0.8, 0.5, 0.4], // Dados de déficit habitacional por região em milhões
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0'], // Cores das barras
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true // O eixo Y começa no zero
+                }
+            }
         }
     });
 });
