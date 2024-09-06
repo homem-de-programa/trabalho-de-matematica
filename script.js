@@ -19,3 +19,54 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var ctxEscolaridade = document.getElementById('graficoEscolaridade').getContext('2d');
+    var chartEscolaridade = new Chart(ctxEscolaridade, {
+        type: 'pie',
+        data: {
+            labels: ['Analfabetos', 'Ensino Fundamental Incompleto', 'Ensino Médio Completo', 'Ensino Superior Completo'],
+            datasets: [{
+                data: [6.6, 34, 26, 18],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    var ctxSaude = document.getElementById('graficoSaude').getContext('2d');
+    var chartSaude = new Chart(ctxSaude, {
+        type: 'bar',
+        data: {
+            labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
+            datasets: [{
+                label: 'Acesso à Saúde (%)',
+                data: [60, 65, 70, 80, 85],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#FF9F40'],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var ctxHabitacao = document.getElementById('graficoHabitacao').getContext('2d');
+    var chartHabitacao = new Chart(ctxHabitacao, {
+        type: 'doughnut',
+        data: {
+            labels: ['Déficit Habitacional', 'Sem Déficit Habitacional'],
+            datasets: [{
+                data: [6, 94], // Simulação para representar o déficit habitacional
+                backgroundColor: ['#FF6384', '#36A2EB'],
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+});
