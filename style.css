@@ -56,3 +56,15 @@ table th {
     background-color: #0073e6;
     color: white;
 }
+/* Gráficos */
+#graficos {
+    text-align: center;
+    padding: 1em;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
