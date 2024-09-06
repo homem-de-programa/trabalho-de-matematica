@@ -41,11 +41,11 @@ section {
     padding: 1em;
 }
 
-canvas {
+#graficos canvas {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 1em auto; /* Adiciona margem entre os gráficos */
 }
 
 /* Tabelas */
