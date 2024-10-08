@@ -1,58 +1,65 @@
-/* Estilos gerais */
+/* Estilo global */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Header */
+/* Estilo do cabeçalho */
 header {
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
-    padding: 1em 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 1em;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Seções */
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Estilo das seções */
 section {
-    padding: 2em;
-    margin: 0 1em;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Gráficos */
-#graficos {
-    text-align: center;
-    padding: 1em;
+h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
 }
 
-#graficos canvas {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1em auto; /* Adiciona margem entre os gráficos */
-}
-
-/* Tabelas */
+/* Estilo das tabelas */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1em 0;
+    margin-top: 20px;
 }
 
 table, th, td {
@@ -60,45 +67,25 @@ table, th, td {
 }
 
 th, td {
-    padding: 0.5em;
-    text-align: center;
+    padding: 12px;
+    text-align: left;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #f4f4f9;
 }
 
-/* Rodapé */
+/* Estilo do rodapé */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1em 0;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin-bottom: 0.5em;
-    }
-
-    section {
-        margin: 0;
-        padding: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 0.5em;
-    }
-
-    nav ul li {
-        margin-right: 0;
-    }
-
-    table, th, td {
-        font-size: 0.9em;
-    }
+footer p {
+    margin: 0;
 }
